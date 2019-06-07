@@ -1,5 +1,6 @@
+// JS
 
-// Definição de variáveis relacionadas a itens do corpo HTML
+// Definição de variáveis relacionadas a itens do Documento
 var listElement = document.querySelector('#app ul');
 var inputElement = document.querySelector('#app input');
 var btnElement = document.querySelector('#app button');
@@ -7,7 +8,7 @@ var btnElement = document.querySelector('#app button');
 // Itens pré-fefinidos para serem passados a lista, pegando os valores da função que o localStorage definiu. É preciso transformar novamente para um Array, fazendo uam conversão de valor
 var itensList = JSON.parse(localStorage.getItem('list_todos')) || [];
 
-// Função que cria os elementos 'list itens', adiciona os textos a eles e os passa a lista já cliada no corpo HTML (referenciada aqui como uma variável)
+// Função que cria os elementos 'list itens', adiciona os textos a eles e os passa a lista já cliada no Documento (referenciada aqui como uma variável)
 function actionToDos (){
     listElement.innerHTML = ''; 
 
@@ -34,7 +35,7 @@ function actionToDos (){
 
 actionToDos();
 
-// Fubção responsável por adicionar novos 'list itens' que irão ser adicionados a lista do HTML
+// Fubção responsável por adicionar novos 'list itens' que irão ser adicionados a lista do Documento
 function addToDo(){
     var todoText = inputElement.value;
 
@@ -54,7 +55,7 @@ function deleteToDo(position){
     saveLocalStorage();
 }
 
-// Função que vai salvar os dados no Storage, deixando definitiva as moficações que forem realiadas na operação do arquivo. Função localStorage funciona apenas com Strings! Como mostrado aqui, se for usado outro elemento é preciso converter o mesmo para String para ser usado essa função
+// Função que vai salvar os dados no Storage, deixando definitiva as moficações que forem realizadas na operação do arquivo. Função localStorage funciona apenas com Strings! Como mostrado aqui, se for usado outro elemento é preciso converter o mesmo para String para ser usado essa função
 function saveLocalStorage(){
     localStorage.setItem('list_todos', JSON.stringify(itensList));
 }
